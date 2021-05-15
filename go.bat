@@ -1,3 +1,3 @@
 @echo off
-node .\build.js
+npm run dist:win
 pause
