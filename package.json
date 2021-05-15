@@ -1,11 +1,11 @@
 {
   "name": "palifenlauncher",
-  "version": "1.0.0",
+  "version": "1.0.1-alpha.1",
   "productName": "Palifen Launcher",
   "description": "Modded Minecraft Launcher",
   "author": "Palifen (https://github.com/Palifen)",
   "license": "UNLICENSED",
-  "homepage": "https://github.com/Palifen/PalifenLauncher",
+  "homepage": "https://palifen.fr",
   "bugs": {
     "url": "https://github.com/Palifen/PalifenLauncher/issues"
   },
