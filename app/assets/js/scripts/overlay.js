@@ -9,7 +9,7 @@
  * 
  * @returns {boolean} Whether or not the overlay is visible.
  */
-function isOverlayVisible(){
+function isOverlayVisible() {
     return document.getElementById('main').hasAttribute('overlay')
 }
 

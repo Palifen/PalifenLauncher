@@ -17,6 +17,7 @@ const checkmarkContainer    = document.getElementById('checkmarkContainer')
 const loginRememberOption   = document.getElementById('loginRememberOption')
 const loginButton           = document.getElementById('loginButton')
 const loginForm             = document.getElementById('loginForm')
+const loginMSButton         = document.getElementById('loginMSButton')
 
 // Control variables.
 let lu = false, lp = false
@@ -295,6 +296,99 @@ loginButton.addEventListener('click', () => {
         })
         toggleOverlay(true)
         loggerLogin.log('Error while logging in.', err)
+    })
+
+})
+
+loginMSButton.addEventListener('click', (event) => {
+    // Show loading stuff.
+    toggleOverlay(true, false, 'msOverlay')
+    loginMSButton.disabled = true
+    ipcRenderer.send('openMSALoginWindow', 'open')
+})
+
+ipcRenderer.on('MSALoginWindowReply', (event, ...args) => {
+    if (args[0] === 'error') {
+
+        loginMSButton.disabled = false
+        loginLoading(false)
+        switch (args[1]){
+            case 'AlreadyOpenException': {
+                setOverlayContent('ERREUR', 'HEY! Il y a déja une fenetre de login ouverte!', 'OK')
+                setOverlayHandler(() => {
+                    toggleOverlay(false)
+                    toggleOverlay(false, false, 'msOverlay')
+                })
+                toggleOverlay(true)
+                return
+            }
+            case 'AuthNotFinished': {
+                setOverlayContent('ERREUR', 'Tu doit finir de te connecter sur la fenetre microsoft! Elle se fermera automatiquement...', 'Compris chef!')
+                setOverlayHandler(() => {
+                    toggleOverlay(false)
+                    toggleOverlay(false, false, 'msOverlay')
+                })
+                toggleOverlay(true)
+                return
+            }
+        }
+
+    }
+    toggleOverlay(false, false, 'msOverlay')
+    const queryMap = args[0]
+    if (queryMap.has('error')) {
+        let error = queryMap.get('error')
+        let errorDesc = queryMap.get('error_description')
+        if(error === 'access_denied'){
+            error = 'ERRPR'
+            errorDesc = 'Pour Utiliser ce Launcher avec Microsoft tu doit accepter les condition! Sinon Microsoft refusera l\'authentification.'
+        }        
+        setOverlayContent(error, errorDesc, 'OK')
+        setOverlayHandler(() => {
+            loginMSButton.disabled = false
+            toggleOverlay(false)
+        })
+        toggleOverlay(true)
+        return
+    }
+
+    // Disable form.
+    formDisabled(true)
+
+    const authCode = queryMap.get('code')
+    AuthManager.addMSAccount(authCode).then(account => {
+        updateSelectedAccount(account)
+        loginButton.innerHTML = loginButton.innerHTML.replace(Lang.queryJS('login.loggingIn'), Lang.queryJS('login.success'))
+        $('.circle-loader').toggleClass('load-complete')
+        $('.checkmark').toggle()
+        setTimeout(() => {
+            switchView(VIEWS.login, loginViewOnSuccess, 500, 500, () => {
+                // Temporary workaround
+                if (loginViewOnSuccess === VIEWS.settings) {
+                    prepareSettings()
+                }
+                loginViewOnSuccess = VIEWS.landing // Reset this for good measure.
+                loginCancelEnabled(false) // Reset this for good measure.
+                loginViewCancelHandler = null // Reset this for good measure.
+                loginUsername.value = ''
+                loginPassword.value = ''
+                $('.circle-loader').toggleClass('load-complete')
+                $('.checkmark').toggle()
+                loginLoading(false)
+                loginButton.innerHTML = loginButton.innerHTML.replace(Lang.queryJS('login.success'), Lang.queryJS('login.login'))
+                formDisabled(false)
+            })
+        }, 1000)
+    }).catch(error => {
+        loginMSButton.disabled = false
+        loginLoading(false)
+        setOverlayContent('ERROR', error.message ? error.message : 'Microsoft a un pb, Contacte Fristorm.', Lang.queryJS('login.tryAgain'))
+        setOverlayHandler(() => {
+            formDisabled(false)
+            toggleOverlay(false)
+        })
+        toggleOverlay(true)
+        loggerLogin.error(error)
     })
 
 })
