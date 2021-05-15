@@ -9,7 +9,7 @@
  * 
  * @returns {boolean} Whether or not the overlay is visible.
  */
-function isOverlayVisible(){
+function isOverlayVisible() {
     return document.getElementById('main').hasAttribute('overlay')
 }
 
@@ -267,6 +267,9 @@ function populateServerListings(){
     const servers = distro.getServers()
     let htmlString = ''
     for(const serv of servers){
+        if(serv.getServerCode() && !ConfigManager.getServerCodes().includes(serv.getServerCode())){
+            continue
+        }
         htmlString += `<button class="serverListing" servid="${serv.getID()}" ${serv.getID() === giaSel ? 'selected' : ''}>
             <img class="serverListingImg" src="${serv.getIcon()}"/>
             <div class="serverListingDetails">
