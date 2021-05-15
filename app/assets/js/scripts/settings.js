@@ -1301,7 +1301,7 @@ function populateSettingsUpdateInformation(data){
                 shell.openExternal(data.darwindownload)
             })
         } else {
-            settingsUpdateButtonStatus('Téléchargement..', true)
+            settingsUpdateButtonStatus('Téléchargement...', true)
         }
     } else {
         settingsUpdateTitle.innerHTML = 'Vous êtes sur la derniere version'
