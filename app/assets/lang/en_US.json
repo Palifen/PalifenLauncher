@@ -1,48 +1,48 @@
 {
     "html": {
-        "avatarOverlay": "Edit"
+        "avatarOverlay": "Modifier"
     },
     "js": {
         "login": {
             "error": {
-                "invalidValue": "* Invalid Value",
-                "requiredValue": "* Required",
+                "invalidValue": "* Valeur interdite",
+                "requiredValue": "* Requis",
                 "userMigrated": {
-                    "title": "Error During Login:<br>Invalid Credentials",
-                    "desc": "You've attempted to login with a migrated account. Try again using the account email as the username."
+                    "title": "Erreur a l'authentification:<br>Token invalide",
+                    "desc": "Vous essayez de vous connecter avec un compte ancien, essayez avec un email."
                 },
                 "invalidCredentials": {
-                    "title": "Error During Login:<br>Invalid Credentials",
-                    "desc": "The email or password you've entered is incorrect. Please try again."
+                    "title": "Erreur a l'authentification:<br>Token invalide",
+                    "desc": "Email ou mot de passe incorrect."
                 },
                 "rateLimit": {
-                    "title": "Error During Login:<br>Too Many Attempts",
-                    "desc": "There have been too many login attempts with this account recently. Please try again later."
+                    "title": "Erreur a l'authentification:<br>Calme toi avec tes 1000 essaies",
+                    "desc": "Vas te prendre un café, tu spam trop."
                 },
                 "noInternet": {
-                    "title": "Error During Login:<br>No Internet Connection",
-                    "desc": "You must be connected to the internet in order to login. Please connect and try again."
+                    "title": "Erreur a l'authentification:<br>Pas d'internet",
+                    "desc": "J'ai rien contre les provinciaux hein xD mais bon internet c'est chouette quand même."
                 },
                 "authDown": {
-                    "title": "Error During Login:<br>Authentication Server Offline",
-                    "desc": "Mojang's authentication server is currently offline or unreachable. Please wait a bit and try again. You can check the status of the server on <a href=\"https://help.mojang.com/\">Mojang's help portal</a>."
+                    "title": "Erreur a l'authentification:<br>Les serveurs de Mojang sont HS",
+                    "desc": "Mojang est en PLS en ce moment... Repasse plus tard."
                 },
                 "notPaid": {
-                    "title": "Error During Login:<br>Game Not Purchased",
-                    "desc": "The account you are trying to login with has not purchased a copy of Minecraft.<br>You may purchase a copy on <a href=\"https://minecraft.net/\">Minecraft.net</a>"
+                    "title": "Erreur a l'authentification:<br>Je suis pauvre",
+                    "desc": "Le jeux est à moins de 20€ sur Instant gaming xD"
                 },
                 "unknown": {
-                    "title": "Error During Login:<br>Unknown Error"
+                    "title": "Erreur a l'authentification:<br>MAIS WTF QU'ES-CE T'A FOUTUE?!"
                 }
             },
-            "login": "LOGIN",
-            "loggingIn": "LOGGING IN",
-            "success": "SUCCESS",
-            "tryAgain": "Try Again"
+            "login": "Valider",
+            "loggingIn": "Connection en cours",
+            "success": "C'est bon!",
+            "tryAgain": "OOPS! recommence!"
         },
         "landing": {
             "launch": {
-                "pleaseWait": "Please wait.."
+                "pleaseWait": "Attent un peu.."
             }
         }
     }
