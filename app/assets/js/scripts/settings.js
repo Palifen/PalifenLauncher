@@ -1412,7 +1412,7 @@ function populateSettingsUpdateInformation(data){
         populateVersionInformation(remote.app.getVersion(), settingsUpdateVersionValue, settingsUpdateVersionTitle, settingsUpdateVersionCheck)
         settingsUpdateButtonStatus('Vérifier les Mise à Jours', false, () => {
             if(!isDev){
-                ipcRenderer.send('autoUpdateAction', 'checkForUpdate')
+                ipcRenderer.send('autoUpdateAction', 'Verifier les M.A.J')
                 settingsUpdateButtonStatus('Verification des Mise à Jours..', true)
             }
         })
