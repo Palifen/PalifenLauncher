@@ -4,6 +4,9 @@
 
 Status du build:
 
-
+Build release:
 [![Build Status](https://www.travis-ci.com/Palifen/PalifenLauncher.svg?branch=master)](https://www.travis-ci.com/Palifen/PalifenLauncher)
+
+Build Dev :
+[![Build](https://github.com/Palifen/PalifenLauncher/actions/workflows/main.yml/badge.svg?branch=Dev)](https://github.com/Palifen/PalifenLauncher/actions/workflows/main.yml)
 
