@@ -4,5 +4,6 @@
 
 Status du build:
 
+
 [![Build Status](https://www.travis-ci.com/Palifen/PalifenLauncher.svg?branch=master)](https://www.travis-ci.com/Palifen/PalifenLauncher)
 
