@@ -17,7 +17,7 @@ jobs:
       - name: Build
         run: npm run dist:linux
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   build-windows:
     runs-on: windows-latest
     name: Build for Windows
@@ -31,7 +31,7 @@ jobs:
       - name: Build
         run: npm run dist:win
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   build-mac:
     runs-on: macos-latest
     name: Build for MacOS
@@ -45,4 +45,4 @@ jobs:
       - name: Build
         run: npm run dist:mac
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
