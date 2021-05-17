@@ -17,7 +17,7 @@ jobs:
       - name: Build
         run: npm run dist:linux
         env:
-          GH_TOKEN: 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
+          GH_TOKEN: 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
   build-windows:
     runs-on: windows-latest
     name: Build for Windows
@@ -31,4 +31,4 @@ jobs:
       - name: Build
         run: npm run dist:win
         env:
-          GH_TOKEN: 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
+          GH_TOKEN: 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
