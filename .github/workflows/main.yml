@@ -17,7 +17,7 @@ jobs:
       - name: Build
         run: npm run dist:linux
         env:
-          GH_TOKEN: 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
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   build-windows:
     runs-on: windows-latest
     name: Build for Windows
@@ -31,4 +31,4 @@ jobs:
       - name: Build
         run: npm run dist:win
         env:
-          GH_TOKEN: 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
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
