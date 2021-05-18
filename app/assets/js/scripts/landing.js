@@ -1094,14 +1094,14 @@ document.addEventListener('keydown', (e) => {
 
 /**
  * Display a news article on the UI.
- *
+ * 
  * @param {Object} articleObject The article meta object.
  * @param {number} index The article index.
  */
 function displayArticle(articleObject, index){
     newsArticleTitle.innerHTML = articleObject.title
     newsArticleTitle.href = articleObject.link
-    newsArticleAuthor.innerHTML = 'par ' + articleObject.author
+    newsArticleAuthor.innerHTML = 'by ' + articleObject.author
     newsArticleDate.innerHTML = articleObject.date
     newsArticleComments.innerHTML = articleObject.comments
     newsArticleComments.href = articleObject.commentsLink
@@ -1132,15 +1132,15 @@ function loadNews(){
                 const articles = []
 
                 for(let i=0; i<items.length; i++){
-                    // JQuery Element
+                // JQuery Element
                     const el = $(items[i])
 
                     // Resolve date.
-                    const date = new Date(el.find('pubDate').text()).toLocaleDateString('fr-FR', {month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric'})
+                    const date = new Date(el.find('pubDate').text()).toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric'})
 
                     // Resolve comments.
                     let comments = el.find('slash\\:comments').text() || '0'
-                    comments = comments + ' Commentaire' + (comments === '1' ? '' : 's')
+                    comments = comments + ' Comment' + (comments === '1' ? '' : 's')
 
                     // Fix relative links in content.
                     let content = el.find('content\\:encoded').text()
