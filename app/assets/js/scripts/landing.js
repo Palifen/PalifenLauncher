@@ -1098,7 +1098,7 @@ document.addEventListener('keydown', (e) => {
  * @param {Object} articleObject The article meta object.
  * @param {number} index The article index.
  */
- function displayArticle(articleObject, index){
+function displayArticle(articleObject, index){
     newsArticleTitle.innerHTML = articleObject.title
     newsArticleTitle.href = articleObject.link
     newsArticleAuthor.innerHTML = 'by ' + articleObject.author
