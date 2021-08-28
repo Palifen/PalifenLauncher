@@ -562,7 +562,7 @@ exports.pullRemote = function(){
         return exports.pullLocal()
     }
     return new Promise((resolve, reject) => {
-        const distroURL = 'https://launch.palifen.fr/distribution.json'
+        const distroURL = 'http://launch.palifen.fr/distribution.json'
         //const distroURL = 'https://gist.githubusercontent.com/Palifen/53b1ba7a11d26a5c353f9d5ae484b71b/raw/'
         const opts = {
             url: distroURL,
